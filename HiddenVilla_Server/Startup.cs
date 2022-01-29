@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Business.Repository;
+using Business.Repository.IRepository;
 
 namespace HiddenVilla_Server
 {
@@ -30,6 +32,8 @@ namespace HiddenVilla_Server
 			services.AddSingleton<WeatherForecastService>();
 
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+			services.AddScoped<IHotelRoomRepository, HotelRoomRepository>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
